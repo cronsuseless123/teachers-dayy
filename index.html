@@ -84,10 +84,26 @@
       background: radial-gradient(circle, yellow 40%, transparent 70%);
       border-radius: 50%;
       animation: flicker 1s infinite;
+      cursor: pointer;
     }
     @keyframes flicker {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.2); opacity: 0.7; }
+    }
+    .smoke {
+      position: absolute;
+      top: -20px;
+      left: -5px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, rgba(200,200,200,0.8) 40%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0;
+      animation: rise 2s forwards;
+    }
+    @keyframes rise {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
     }
   </style>
 </head>
@@ -95,7 +111,7 @@
   <h1>Happy Teacher's Day, Sir Cyrus!</h1>
   <div class="cake">
     <div class="candle">
-      <div class="flame"></div>
+      <div class="flame" id="flame"></div>
     </div>
   </div>
 
@@ -104,5 +120,16 @@
   <div class="balloon" style="left:50%; background-color:#ffd93b; animation-duration:6s;"></div>
   <div class="balloon" style="left:70%; background-color:#9d6bff; animation-duration:8s;"></div>
   <div class="balloon" style="left:90%; background-color:#4caf50; animation-duration:9s;"></div>
+
+  <script>
+    const flame = document.getElementById("flame");
+    flame.addEventListener("click", () => {
+      flame.style.display = "none"; // remove flame
+      const smoke = document.createElement("div");
+      smoke.classList.add("smoke");
+      flame.parentElement.appendChild(smoke);
+      setTimeout(() => smoke.remove(), 2000); // remove smoke after animation
+    });
+  </script>
 </body>
 </html>
