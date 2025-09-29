@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Teacher's Day</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 2.5rem;
+      color: #333;
+    }
+    .balloon {
+      width: 80px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50% 50% 50% 50%;
+      position: absolute;
+      bottom: -150px;
+      animation: float 6s ease-in infinite;
+    }
+    .balloon::after {
+      content: "";
+      width: 2px;
+      height: 60px;
+      background: #555;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @keyframes float {
+      0% { bottom: -150px; opacity: 0; }
+      50% { opacity: 1; }
+      100% { bottom: 100vh; opacity: 0; }
+    }
+    .cake {
+      position: absolute;
+      bottom: 50px;
+      width: 200px;
+      height: 150px;
+      background: #ffb347;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .cake::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: 20px;
+      width: 160px;
+      height: 40px;
+      background: #ffcccb;
+      border-radius: 10px 10px 0 0;
+    }
+    .candle {
+      position: absolute;
+      top: -60px;
+      width: 10px;
+      height: 30px;
+      background: #fff;
+      left: calc(50% - 5px);
+    }
+    .flame {
+      position: absolute;
+      top: -15px;
+      left: -5px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, yellow 40%, transparent 70%);
+      border-radius: 50%;
+      animation: flicker 1s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Teacher's Day, Sir Cyrus!</h1>
+  <div class="cake">
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <div class="balloon" style="left:10%; background-color:#ff6b6b; animation-duration:5s;"></div>
+  <div class="balloon" style="left:30%; background-color:#6bc6ff; animation-duration:7s;"></div>
+  <div class="balloon" style="left:50%; background-color:#ffd93b; animation-duration:6s;"></div>
+  <div class="balloon" style="left:70%; background-color:#9d6bff; animation-duration:8s;"></div>
+  <div class="balloon" style="left:90%; background-color:#4caf50; animation-duration:9s;"></div>
+</body>
+</html>
